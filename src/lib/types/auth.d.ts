@@ -1,4 +1,5 @@
-import { loginSchema } from "../schemes/auth.schema";
+import z from "zod";
+import { loginSchema, registerSchema } from "../schemes/auth.schema";
 
 export type LoginResponse = {
   token: string;
@@ -16,3 +17,5 @@ export type LoginResponse = {
 };
 
 export type LoginFields = z.infer<typeof loginSchema>;
+
+export type RegisterFields = z.infer<typeof registerSchema>;

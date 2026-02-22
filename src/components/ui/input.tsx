@@ -30,7 +30,7 @@ const PasswordInput = React.forwardRef<HTMLInputElement, React.ComponentProps<"i
       {/* toggle button */}
       <button
         type="button"
-        className="absolute inset-y-0 right-0 px-3 py-2 text-muted-foreground hover:text-ring"
+        className="absolute inset-y-0 end-0 px-3 py-2 text-muted-foreground hover:text-ring"
         onClick={() => setShowPassword((prev) => !prev)}
       >
         {showPassword ? <EyeIcon className="h-4 w-4" /> : <EyeOffIcon className="h-4 w-4" />}
