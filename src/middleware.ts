@@ -1,25 +1,58 @@
-import { getToken } from "next-auth/jwt";
+import { withAuth } from "next-auth/middleware";
+import createMiddleware from "next-intl/middleware";
 import { NextRequest, NextResponse } from "next/server";
+import { routing } from "./i18n/routing";
+import { getToken } from "next-auth/jwt";
 
-const autoPages = new Set(["/login", "/register", "forgot-password"]);
+// Auth pages (should NOT be accessible when logged in)
+const authPages = ["/login", "/register", "/forgot-password"];
+
+// Next-Intl middleware handler
+const handleI18nRouting = createMiddleware(routing);
+
+// NextAuth middleware
+const authMiddleware = withAuth(
+  function onSuccess(req) {
+    // Apply i18n routing after successful auth
+    return handleI18nRouting(req);
+  },
+  {
+    callbacks: {
+      authorized: ({ token }) => token != null,
+    },
+    pages: {
+      signIn: "/login",
+    },
+  },
+);
 
 export default async function middleware(req: NextRequest) {
-  const { pathname } = req.nextUrl;
+  // Variables
   const token = await getToken({ req });
 
-  if (!autoPages.has(pathname)) {
+  const locales = routing.locales.join("|");
 
-    if (token) return NextResponse.next();
+  const authPathnameRegex = new RegExp(`^(/(${locales}))?(${authPages.flatMap((p) => (p === "/" ? ["", "/"] : p)).join("|")})/?$`, "i");
+  const isAuthPage = authPathnameRegex.test(req.nextUrl.pathname);
 
-    const redirectUrl = new URL("/login", req.nextUrl.origin);
-    redirectUrl.searchParams.set("callbackUrl", pathname);
+  // Public pages logic
+  if (isAuthPage) {
+    // Redirect authenticated users away from auth pages
+    if (token) {
+      const redirectUrl = new URL("/", req.nextUrl.origin);
 
-    return NextResponse.redirect(redirectUrl);
+      // Preserve search params
+      req.nextUrl.searchParams.forEach((value, key) => {
+        redirectUrl.searchParams.set(key, value);
+      });
+
+      return NextResponse.redirect(redirectUrl);
+    }
+
+    return handleI18nRouting(req);
   }
 
-  if (!token) return NextResponse.next();
-
-  return NextResponse.redirect(new URL("/", req.nextUrl.origin));
+  return (authMiddleware as any)(req);
 }
 
 export const config = {

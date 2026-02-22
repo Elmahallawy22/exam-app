@@ -1,0 +1,46 @@
+{
+  "auth-side": {
+    "title": "Exam App",
+    "sub-title": "Empower your learning journey with our smart exam platform.",
+    "title-feature-one": "Tailored Diplomas",
+    "sub-title-feature-one": "Choose from specialized tracks like Frontend, Backend, and Mobile Development.",
+    "title-feature-two": "Focused Exams",
+    "sub-title-feature-two": "Access topic-specific tests including HTML, CSS, JavaScript, and more.",
+    "title-feature-three": "Smart Multi-Step Forms",
+    "sub-title-feature-three": "Choose from specialized tracks like Frontend, Backend, and Mobile Development."
+  },
+  "login": {
+    "title": "Login",
+    "email": "Email",
+    "email-placeholder": "Enter your email",
+    "password": "Password",
+    "forgot-your-password": "Forgot your password?",
+    "submit": "Login",
+    "login-footer": "Don’t have an account? <a>Create yours</a>",
+    "email-required": "Please enter your email",
+    "password-required": "Please enter your password",
+    "password-lenght": "Password must be at least 8 characters long"
+  },
+  "register": {
+    "title": "Create Account",
+    "first-name": "First name",
+    "last-name": "Last name",
+    "user-name": "Username",
+    "email": "Email",
+    "phone": "Phone",
+    "password": "Password",
+    "confirm-password": "Confirm Password",
+    "submit": "Create Account",
+    "register-footer": "Already have an account? <a>Login</a>",
+    "first-name-length": "FirstName at least 3 char",
+    "last-name-length": "LastName at least 3 char",
+    "user-name-length": "Username at least 3 character",
+    "email-required": "Please enter your email",
+    "phone-min": "Phone is required",
+    "phone-max": "Phone is more than invaled",
+    "phone-valid": "Please enter a valid phone number",
+    "password-required": "Please enter your password",
+    "password-lenght": "Password must be at least 8 characters long",
+    "re-password-valid": "Confirm Password is not equal password"
+  }
+}

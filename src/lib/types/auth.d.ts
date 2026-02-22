@@ -16,6 +16,6 @@ export type LoginResponse = {
   };
 };
 
-export type LoginFields = z.infer<typeof loginSchema>;
+export type LoginFields = z.infer<ReturnType<typeof loginSchema>>;
 
-export type RegisterFields = z.infer<typeof registerSchema>;
+export type RegisterFields = z.infer<ReturnType<typeof registerSchema>>;

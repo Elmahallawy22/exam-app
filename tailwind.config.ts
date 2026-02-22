@@ -3,11 +3,7 @@ import tailwindcssAnimate from "tailwindcss-animate";
 
 const config: Config = {
   darkMode: ["class"],
-  content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
+  content: ["./src/pages/**/*.{js,ts,jsx,tsx,mdx}", "./src/components/**/*.{js,ts,jsx,tsx,mdx}", "./src/app/**/*.{js,ts,jsx,tsx,mdx}"],
   theme: {
     extend: {
       colors: {
@@ -59,24 +55,26 @@ const config: Config = {
       },
       fontFamily: {
         inter: "var(--font-inter)",
+        cairo: "var(--font-cairo)",
+        lemonada: "var(--font-lemonada)",
         "roboto-mono": "var(--font-roboto-mono)",
       },
       width: {
         "110": "29rem",
       },
-      minWidth:{
+      minWidth: {
         "110": "29rem",
       },
-      maxWidth:{
+      maxWidth: {
         "110": "29rem",
       },
-      height:{
+      height: {
         "110": "29rem",
       },
-      minHeight:{
+      minHeight: {
         "110": "29rem",
       },
-      maxHeight:{
+      maxHeight: {
         "110": "29rem",
       },
     },

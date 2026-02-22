@@ -9,15 +9,18 @@ import useRegister from "@/hooks/use-register";
 import { registerSchema } from "@/lib/schemes/auth.schema";
 import { RegisterFields } from "@/lib/types/auth";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useTranslations } from "next-intl";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { parsePhoneNumber } from "react-phone-number-input";
 
 export default function RegisterForm() {
+  // translations
+  const t = useTranslations("register");
   // mutation
   const { register, isPending, error } = useRegister();
 
   const form = useForm<RegisterFields>({
-    resolver: zodResolver(registerSchema),
+    resolver: zodResolver(registerSchema(t)),
     defaultValues: {
       firstName: "",
       lastName: "",
@@ -46,7 +49,7 @@ export default function RegisterForm() {
           name="firstName"
           render={({ field }) => (
             <FormItem className="col-span-1">
-              <FormLabel>First Name</FormLabel>
+              <FormLabel>{t('first-name')}</FormLabel>
               {/* Field */}
               <FormControl>
                 <Input placeholder="Ahmed" {...field} autoComplete="firstName" />
@@ -62,7 +65,7 @@ export default function RegisterForm() {
           name="lastName"
           render={({ field }) => (
             <FormItem className="col-span-1">
-              <FormLabel>Last Name</FormLabel>
+              <FormLabel>{t('last-name')}</FormLabel>
               {/* Field */}
               <FormControl>
                 <Input placeholder="Mohamed" {...field} autoComplete="lastName" />
@@ -78,7 +81,7 @@ export default function RegisterForm() {
           name="username"
           render={({ field }) => (
             <FormItem className="col-span-2">
-              <FormLabel>Username</FormLabel>
+              <FormLabel>{t('user-name')}</FormLabel>
               {/* Field */}
               <FormControl>
                 <Input placeholder="user123" {...field} autoComplete="userName" />
@@ -95,7 +98,7 @@ export default function RegisterForm() {
           name="email"
           render={({ field }) => (
             <FormItem className="col-span-2">
-              <FormLabel>Email</FormLabel>
+              <FormLabel>{t('email')}</FormLabel>
               {/* Field */}
               <FormControl>
                 <Input placeholder="user@example.com" {...field} autoComplete="email" />
@@ -112,7 +115,7 @@ export default function RegisterForm() {
           name="phone"
           render={({ field }) => (
             <FormItem className="col-span-2">
-              <FormLabel>Phone</FormLabel>
+              <FormLabel>{t('phone')}</FormLabel>
               {/* Field */}
               <FormControl>
                 <PhoneInput placeholder="01000000000" {...field} autoComplete="phone" />
@@ -129,7 +132,7 @@ export default function RegisterForm() {
           name="password"
           render={({ field }) => (
             <FormItem className="col-span-2">
-              <FormLabel>Password</FormLabel>
+              <FormLabel>{t('password')}</FormLabel>
               {/* Field */}
               <FormControl>
                 <Input type="password" placeholder="********" {...field} autoComplete="current-password" />
@@ -145,7 +148,7 @@ export default function RegisterForm() {
           name="rePassword"
           render={({ field }) => (
             <FormItem className="col-span-2">
-              <FormLabel>Confirm Password</FormLabel>
+              <FormLabel>{t('confirm-password')}</FormLabel>
               {/* Field */}
               <FormControl>
                 <Input type="password" placeholder="********" {...field} />
@@ -157,7 +160,6 @@ export default function RegisterForm() {
         />
         {/* feedback */}
         <Feedback className="col-span-2 mt-6">{error?.message}</Feedback>
-
         {/* submit button */}
         <Button disabled={isPending || (!form.formState.isValid && form.formState.isSubmitted)} className="mt-4 col-span-2">
           Create Account

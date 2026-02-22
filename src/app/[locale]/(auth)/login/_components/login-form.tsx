@@ -7,18 +7,22 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { loginSchema } from "@/lib/schemes/auth.schema";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import useLogin from "@/hooks/use-login";
 import Feedback from "@/components/shared/feedback";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 
 export default function LoginForm() {
+  //translation
+  const t = useTranslations("login");
+
   // Mutatiion
   const { login, isPending, error } = useLogin();
 
   // form
   const form = useForm<LoginFields>({
-    resolver: zodResolver(loginSchema),
+    resolver: zodResolver(loginSchema(t)),
     defaultValues: {
       email: "",
       password: "",
@@ -26,7 +30,7 @@ export default function LoginForm() {
   });
 
   const onSubmit: SubmitHandler<LoginFields> = (values: LoginFields) => {
-    login(values)
+    login(values);
   };
 
   return (
@@ -38,10 +42,10 @@ export default function LoginForm() {
           name="email"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Email</FormLabel>
+              <FormLabel>{t("email")}</FormLabel>
               {/* Field */}
               <FormControl>
-                <Input placeholder="Enter your email" {...field} autoComplete="email" />
+                <Input placeholder={t("email-placeholder")} {...field} autoComplete="email" />
               </FormControl>
               {/* message */}
               <FormMessage />
@@ -55,7 +59,7 @@ export default function LoginForm() {
           name="password"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Password</FormLabel>
+              <FormLabel>{t("password")}</FormLabel>
               {/* Field */}
               <FormControl>
                 <Input type="password" placeholder="********" {...field} autoComplete="current-password" />
@@ -67,13 +71,13 @@ export default function LoginForm() {
         />
         {/* forget password */}
         <Link href={"/forgot-password"} className="text-sm text-blue-600 text-end -mt-1.5">
-          Forgot your password?
+          {t("forgot-your-password")}
         </Link>
         {/* feedback */}
         <Feedback className="mt-5">{error?.message}</Feedback>
         {/* submit button */}
         <Button disabled={isPending || (!form.formState.isValid && form.formState.isSubmitted)} className="mt-4">
-          Login
+          {t("submit")}
         </Button>
       </form>
     </Form>

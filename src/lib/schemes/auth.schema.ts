@@ -1,20 +1,24 @@
 import z from "zod";
+import { Translatons } from "../types/global";
 
-export const loginSchema = z.object({
-  email: z.email("Please enter your email"),
-  password: z.string("Please enter your password").min(8, "Password must be at least 8 characters long"),
-});
+export const loginSchema = (t: Translatons) => 
+  z.object({
+    email: z.email(t("email-required")),
+    password: z.string(t("password-required")).min(8, t("password-length")),
+  });
 
-export const registerSchema = z.object({
-  firstName: z.string().min(3, "FirstName at least 3 character "),
-  lastName: z.string().min(3, "lastName at least 3 character "),
-  username: z.string().min(3, "userName at least 3 character "),
-  email: z.email("Please enter your email"),
-  phone: z
-    .string()
-    .min(1, "Phone is required")
-    .max(13, "Phone is more than invaled")
-    .regex(/^(\+201|01|00201)[0-2,5]{1}[0-9]{8}/, "Please enter a valid phone number"),
-  password: z.string("Please enter your password").min(8, "Password must be at least 8 characters long"),
-  rePassword: z.string("Confirm Password is not equal password"),
-});
+
+export const registerSchema = (t: Translatons) => 
+  z.object({
+    firstName: z.string().min(3, t("first-name-length")),
+    lastName: z.string().min(3, t("last-name-length")),
+    username: z.string().min(3, t("user-name-length")),
+    email: z.email(t("email-required")),
+    phone: z
+      .string()
+      .min(1, t("phone-min"))
+      .max(13, t("phone-max"))
+      .regex(/^(\+201|01|00201)[0-2,5]{1}[0-9]{8}/, t("phone-valid")),
+    password: z.string(t("password-required")).min(8, t("password-length")),
+    rePassword: z.string(t("re-password-valid")),
+  });

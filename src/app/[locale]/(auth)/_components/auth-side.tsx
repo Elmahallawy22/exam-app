@@ -2,22 +2,26 @@ import React from "react";
 import Image from "next/image";
 import { BookOpenCheck, Brain, RectangleEllipsis } from "lucide-react";
 import { cn } from "@/lib/utils/tailwind-merge";
+import { useTranslations } from "next-intl";
 
 export default function AuthSide() {
+  // translations
+  const t = useTranslations("auth-side");
+
   const list = [
     {
-      title: "Tailored Diplomas",
-      description: "Choose from specialized tracks like Frontend, Backend, and Mobile Development.",
+      title: t("title-feature-one"),
+      description: t("sub-title-feature-one"),
       icon: <Brain />,
     },
     {
-      title: "Focused Exams",
-      description: "Access topic-specific tests including HTML, CSS, JavaScript, and more.",
+      title: t("title-feature-two"),
+      description: t("sub-title-feature-two"),
       icon: <BookOpenCheck />,
     },
     {
-      title: "Smart Multi-Step Forms",
-      description: "Choose from specialized tracks like Frontend, Backend, and Mobile Development.",
+      title: t("title-feature-three"),
+      description: t("sub-title-feature-three"),
       icon: <RectangleEllipsis />,
     },
   ];
@@ -33,12 +37,10 @@ export default function AuthSide() {
       <div className="space-y-20 z-10">
         <div className="flex gap-4 items-start">
           <Image src="/assets/folder_code.png" alt="folder code icon" width={28} height={24} />
-          <h3 className="text-blue-600 text-xl font-semibold">Exam App</h3>
+          <h3 className="text-blue-600 text-xl font-semibold">{t('title')}</h3>
         </div>
         <div className="max-w-110 w-full">
-          <p className="text-3xl font-bold font-inter mb-9">
-            Empower your learning journey with our smart exam platform.
-          </p>
+          <p className="text-3xl font-bold font-inter rtl:font-lemonada mb-9">{t('sub-title')}</p>
           <ul className="space-y-9">
             {list.map((item, index) => (
               <li className="flex gap-4" key={index}>
