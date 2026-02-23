@@ -31,7 +31,7 @@ export const authOptions: NextAuthOptions = {
         return {
           id: payload.user._id,
           accessToken: payload.token,
-          ...payload.user,
+          user: payload.user,
         };
       },
     }),
@@ -41,7 +41,7 @@ export const authOptions: NextAuthOptions = {
     jwt: ({ token, user }) => {
       if (user) {
         token.accessToken = user.accessToken;
-        token.user = user;
+        token.user = user.user;
       }
 
       return token;

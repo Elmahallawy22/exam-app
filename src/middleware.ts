@@ -1,6 +1,6 @@
 import { withAuth } from "next-auth/middleware";
 import createMiddleware from "next-intl/middleware";
-import { NextRequest, NextResponse } from "next/server";
+import { NextFetchEvent, NextMiddleware, NextRequest, NextResponse } from "next/server";
 import { routing } from "./i18n/routing";
 import { getToken } from "next-auth/jwt";
 
@@ -9,7 +9,6 @@ const authPages = ["/login", "/register", "/forgot-password"];
 
 // Next-Intl middleware handler
 const handleI18nRouting = createMiddleware(routing);
-
 // NextAuth middleware
 const authMiddleware = withAuth(
   function onSuccess(req) {
@@ -26,7 +25,7 @@ const authMiddleware = withAuth(
   },
 );
 
-export default async function middleware(req: NextRequest) {
+export default async function middleware(req: NextRequest, event: NextFetchEvent) {
   // Variables
   const token = await getToken({ req });
 
@@ -52,7 +51,7 @@ export default async function middleware(req: NextRequest) {
     return handleI18nRouting(req);
   }
 
-  return (authMiddleware as any)(req);
+  return (authMiddleware as NextMiddleware)(req, event);
 }
 
 export const config = {

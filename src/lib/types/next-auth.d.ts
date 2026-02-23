@@ -1,29 +1,19 @@
+import type { LoginResponse } from "./lib/types/auth";
+
 declare module "next-auth" {
-  /**
-   * The shape of the user object returned in the OAuth providers' `profile` callback,
-   * or the second parameter of the `session` callback, when using a database.
-   */
   interface User {
     accessToken: string;
-    user: {
-      _id: string;
-      username: string;
-      firstName: string;
-      lastName: string;
-      email: string;
-      phone: string;
-      role: string;
-      isVerified: boolean;
-      createdAt: string;
-    };
+    user: LoginResponse["user"];
   }
-  /**
-   * Returned by `useSession`, `getSession` and received as a prop on the `SessionProvider` React Context
-   */
-  type Session = User["user"];
+
+  interface Session {
+    user: LoginResponse["user"] & { accessToken: string };
+  }
 }
 
 declare module "next-auth/jwt" {
-  /** Returned by the `jwt` callback and `getToken`, when using JWT sessions */
-  type JWT = User;
+  interface JWT {
+    accessToken: string;
+    user: LoginResponse["user"];
+  }
 }
