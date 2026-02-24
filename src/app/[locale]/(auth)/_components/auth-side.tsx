@@ -3,11 +3,13 @@ import Image from "next/image";
 import { BookOpenCheck, Brain, RectangleEllipsis } from "lucide-react";
 import { cn } from "@/lib/utils/tailwind-merge";
 import { useTranslations } from "next-intl";
+import ToggleLanguage from "@/components/features/toggle-language";
 
 export default function AuthSide() {
   // translations
   const t = useTranslations("auth-side");
 
+  //variables
   const list = [
     {
       title: t("title-feature-one"),
@@ -35,12 +37,15 @@ export default function AuthSide() {
       )}
     >
       <div className="space-y-20 z-10">
-        <div className="flex gap-4 items-start">
-          <Image src="/assets/folder_code.png" alt="folder code icon" width={28} height={24} />
-          <h3 className="text-blue-600 text-xl font-semibold">{t('title')}</h3>
+        <div className="flex items-center justify-between">
+          <div className="flex gap-4 items-start">
+            <Image src="/assets/folder_code.png" alt="folder code icon" width={28} height={24} />
+            <h3 className="text-blue-600 text-xl font-semibold">{t("title")}</h3>
+          </div>
+          <ToggleLanguage className="bg-blue-600 text-white font-medium px-4 py-1.5 rounded-md ltr:font-lemonada" />
         </div>
         <div className="max-w-110 w-full">
-          <p className="text-3xl font-bold font-inter rtl:font-lemonada mb-9">{t('sub-title')}</p>
+          <p className="text-3xl font-bold font-inter rtl:font-lemonada mb-9">{t("sub-title")}</p>
           <ul className="space-y-9">
             {list.map((item, index) => (
               <li className="flex gap-4" key={index}>

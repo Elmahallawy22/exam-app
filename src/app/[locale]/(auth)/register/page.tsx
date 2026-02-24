@@ -15,7 +15,7 @@ export default function Page() {
         <p className="text-sm font-medium text-gray-500 mt-9 text-center">
           {t.rich("register-footer", {
             a: (chank) => (
-              <Link href={"/register"} className="text-blue-600">
+              <Link href={"/login"} className="text-blue-600">
                 {chank}
               </Link>
             ),

@@ -19,7 +19,8 @@
     "login-footer": "ليس لديك حساب؟ <a>أنشئ حسابك</a>",
     "email-required": "يرجى إدخال بريدك الإلكتروني",
     "password-required": "يرجى إدخال كلمة المرور",
-    "password-length": "يجب أن تتكون كلمة المرور من 8 أحرف على الأقل"
+    "password-length": "يجب أن تتكون كلمة المرور من 8 أحرف على الأقل",
+    "continue": "أستمرار"
   },
   "register": {
     "title": "إنشاء حساب",
@@ -40,7 +41,28 @@
     "phone-max": "رقم الهاتف غير صالح",
     "phone-valid": "يرجى إدخال رقم هاتف صحيح",
     "password-required": "يرجى إدخال كلمة المرور",
-    "password-lenght": "يجب أن تتكون كلمة المرور من 8 أحرف على الأقل",
-    "re-password-valid": "تأكيد كلمة المرور غير مطابق لكلمة المرور"
+    "password-length": "يجب أن تتكون كلمة المرور من 8 أحرف على الأقل",
+    "password-uppercase": "يجب أن تحتوي كلمة المرور على حرف كبير واحد على الأقل",
+    "password-lowercase": "يجب أن تحتوي كلمة المرور على حرف صغير واحد على الأقل",
+    "password-special": "يجب أن تحتوي كلمة المرور على رمز خاص واحد على الأقل",
+    "re-password-required": "يرجى إدخال تأكيد كلمة المرور",
+    "re-password-valid": "كلمتا المرور غير متطابقتين",
+    "new-password": "كلمة المرور الجديدة",
+    "confirm-new-password": "تأكيد كلمة المرور الجديدة",
+    "reset-password": "إعادة تعيين كلمة المرور"
+  },
+  "forgot-password-step": {
+    "step-one-title": "نسيت كلمة المرور",
+    "step-one-subtitle": "لا تقلق، سنساعدك على استعادة حسابك.",
+    "step-two-title": "تأكيد رمز التحقق",
+    "step-two-subtitle": "يرجى إدخال رمز التحقق المكوّن من 6 أرقام الذي أرسلناه إلى: <span>{email}</span>. <button>تعديل</button>",
+    "step-three-title": "إنشاء كلمة مرور جديدة",
+    "step-three-subtitle": "أنشئ كلمة مرور جديدة وقوية لحسابك.",
+    "forgot-footer": "لديك حساب بالفعل؟ <a>سجّل الدخول</a>"
+  },
+  "otp-step": {
+    "otp-required": "رمز التحقق مطلوب",
+    "resend": "لم تستلم الرمز؟ <button>إعادة الإرسال</button>",
+    "verify-code": "تأكيد الرمز"
   }
 }

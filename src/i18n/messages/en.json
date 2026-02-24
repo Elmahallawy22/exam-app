@@ -19,7 +19,8 @@
     "login-footer": "Don’t have an account? <a>Create yours</a>",
     "email-required": "Please enter your email",
     "password-required": "Please enter your password",
-    "password-lenght": "Password must be at least 8 characters long"
+    "password-length": "Password must be at least 8 characters long",
+    "continue": "Continue"
   },
   "register": {
     "title": "Create Account",
@@ -40,7 +41,28 @@
     "phone-max": "Phone is more than invaled",
     "phone-valid": "Please enter a valid phone number",
     "password-required": "Please enter your password",
-    "password-lenght": "Password must be at least 8 characters long",
-    "re-password-valid": "Confirm Password is not equal password"
+    "password-length": "Password must be at least 8 characters long",
+    "password-uppercase": "Password must contain at least one uppercase letter",
+    "password-lowercase": "Password must contain at least one lowercase letter",
+    "password-special": "Password must contain at least one special character",
+    "re-password-required": "Please enter your password",
+    "re-password-valid": "Passwords do not match",
+    "new-password":"New Password",
+    "confirm-new-password":"Confirm New Password",
+    "reset-password":"Reset Password"
+  },
+  "forgot-password-step": {
+    "step-one-title": "Forgot Password",
+    "step-one-subtitle": "Don’t worry, we will help you recover your account.",
+    "step-two-title": "Verify OTP",
+    "step-two-subtitle": "Please enter the 6-digits code we have sent to: <span>{email}</span>. <button>Edit</button> ",
+    "step-three-title": "Create a New Password",
+    "step-three-subtitle": "Create a new strong password for your account.",
+    "forgot-footer": "Don’t have an account? <a>Create yours</a>"
+  },
+  "otp-step": {
+    "otp-required": "OTP is required",
+    "resend": "Didn’t receive the code? <button>Resend</button>",
+    "verify-code": "Verify Code"
   }
 }

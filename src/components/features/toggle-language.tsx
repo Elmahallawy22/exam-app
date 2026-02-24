@@ -1,31 +1,35 @@
 "use client";
-import { usePathname, useRouter } from "@/i18n/navigation";
+
+import { useRouter, usePathname } from "next/navigation";
+import { cn } from "@/lib/utils/tailwind-merge";
 import { useLocale } from "next-intl";
-import React from "react";
 
-export default function ToggleLanguage() {
-  // translations hook
+export default function ToggleLanguage({ className }: { className: string }) {
   const locale = useLocale();
-
-  // navigation hooks
   const router = useRouter();
   const pathname = usePathname();
 
   function toggleLocale() {
-    // Toggle between 'ar' and 'en'
-    router.push(
-      {
-        pathname,
-        query: Object.fromEntries(new URLSearchParams(location.search).entries()),
-      },
-      {
-        locale: locale === "ar" ? "en" : "ar",
-      },
-    );
+    const newLocale = locale === "ar" ? "en" : "ar";
+    const newPath = pathname.replace(`/${locale}`, `/${newLocale}`);
+
+    // احتفظ بالـ query params الموجودة
+    const searchParams = new URLSearchParams(window.location.search);
+
+    // لو فيه callbackUrl غير الـ locale فيه كمان
+    if (searchParams.has("callbackUrl")) {
+      const callbackUrl = searchParams.get("callbackUrl")!;
+      const newCallbackUrl = callbackUrl.replace(`/${locale}`, `/${newLocale}`);
+      searchParams.set("callbackUrl", newCallbackUrl);
+    }
+
+    const query = searchParams.toString();
+    router.push(query ? `${newPath}?${query}` : newPath);
+    router.refresh();
   }
+
   return (
-    // #TODO: Style the button
-    <button onClick={toggleLocale} className="text-white bg-red-600 px-5 py-2 rounded-lg mx-96">
+    <button onClick={toggleLocale} className={cn(className)}>
       {locale === "ar" ? "English" : "العربية"}
     </button>
   );

@@ -1,8 +1,8 @@
 import { useMutation } from "@tanstack/react-query";
-import { useRouter } from "next/navigation";
 import { RegisterFields } from "@/lib/types/auth";
-import { registerAction } from "@/lib/actions/register.action";
+import { registerAction } from "@/lib/actions/auth.action";
 import { toast } from "sonner";
+import { useRouter } from "@/i18n/navigation";
 
 export default function useRegister() {
   // router
@@ -21,7 +21,7 @@ export default function useRegister() {
     },
     onSuccess: () => {
       toast.success("Successful Registertion");
-      
+
       router.push("/login");
     },
   });
