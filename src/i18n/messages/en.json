@@ -47,9 +47,9 @@
     "password-special": "Password must contain at least one special character",
     "re-password-required": "Please enter your password",
     "re-password-valid": "Passwords do not match",
-    "new-password":"New Password",
-    "confirm-new-password":"Confirm New Password",
-    "reset-password":"Reset Password"
+    "new-password": "New Password",
+    "confirm-new-password": "Confirm New Password",
+    "reset-password": "Reset Password"
   },
   "forgot-password-step": {
     "step-one-title": "Forgot Password",
@@ -64,5 +64,12 @@
     "otp-required": "OTP is required",
     "resend": "Didn’t receive the code? <button>Resend</button>",
     "verify-code": "Verify Code"
+  },
+  "dashboard": {
+    "sidebar": {
+      "title": "Exam App",
+      "item1": "Diplomas",
+      "item2": "Account Settings"
+    }
   }
 }

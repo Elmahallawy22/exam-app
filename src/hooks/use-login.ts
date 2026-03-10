@@ -19,13 +19,10 @@ export default function useLogin() {
       return respose;
     },
     onSuccess: () => {
-      toast.success("Successful Login ", {
-        onAutoClose: () => {
-          const callbackUrl = new URLSearchParams(location.search).get("callbackUrl") || "/";
-          location.href = callbackUrl; // redirect location
-        },
-        duration: 1000,
-      });
+      const callbackUrl = new URLSearchParams(location.search).get("callbackUrl") || "/";
+
+      // redirect location
+      location.href = callbackUrl;
     },
   });
   return { login: mutate, isPending, error };
