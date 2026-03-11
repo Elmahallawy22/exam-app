@@ -1,10 +1,10 @@
 import Image from "next/image";
 import React from "react";
 import SidebarList from "./sidebar-list";
-import { EllipsisVertical } from "lucide-react";
 import { useTranslations } from "next-intl";
+import UserInfo from "./user-info";
 
-export default function DashboardSidebar() {
+export default function Sidebar() {
   // Translation
   const t = useTranslations("dashboard");
 
@@ -22,16 +22,7 @@ export default function DashboardSidebar() {
         <SidebarList />
       </div>
       {/* user info */}
-      <div className="flex gap-2.5 items-center">
-        <div className="w-14 h-14 border bg-blue-500"></div>
-        <div className="">
-          <h6 className="text-blue-600 font-medium">Firstname</h6>
-          <p className="text-gray-500 text-sm">user-email@example.com</p>
-        </div>
-        <button>
-          <EllipsisVertical width={18} height={18} className="text-gray-500" />
-        </button>
-      </div>
+      <UserInfo />
     </aside>
   );
 }

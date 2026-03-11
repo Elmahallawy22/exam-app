@@ -30,7 +30,6 @@ export default function DashboardHeader() {
       .join(" ");
   };
 
-  console.log(locale);
   return (
     <div className="h-12 bg-white p-4">
       <Breadcrumb>
