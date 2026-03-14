@@ -69,7 +69,9 @@
     "sidebar": {
       "title": "Exam App",
       "item1": "Diplomas",
-      "item2": "Account Settings"
+      "item2": "Account Settings",
+      "account": "Account",
+      "logout": "logout"
     }
   }
 }
