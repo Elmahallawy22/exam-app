@@ -5,8 +5,12 @@ import DiplomaCard from "./diploma-card";
 import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
 import Feedback from "@/components/shared/feedback";
+import { useTranslations } from "next-intl";
 
 export default function DiplomasShow() {
+  // translation
+  const t = useTranslations("dashboard.diplomas");
+
   // query
   const { payload, isLoading, error, isFetchingNextPage, hasNextPage, fetchNextPage } = useSubjects();
 
@@ -31,7 +35,6 @@ export default function DiplomasShow() {
 
   return (
     <section className="grid grid-cols-9 gap-2.5">
-      {isLoading && <p className="col-span-9 text-center mt-4">Loading more...</p>}
       {/* show diplomas  */}
       {subjects.map((subject) => (
         <div className="col-span-3" key={subject._id}>
@@ -45,10 +48,8 @@ export default function DiplomasShow() {
         variant="ghost"
         onClick={() => fetchNextPage()}
       >
-        {hasNextPage ? " Scroll to view more " : "No more diplomas"}
-        <span>
-          <ChevronDown />
-        </span>
+        {hasNextPage ? t("scroll") : t("end")}
+        <span>{hasNextPage && <ChevronDown />}</span>
       </Button>
     </section>
   );

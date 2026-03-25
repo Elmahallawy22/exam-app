@@ -8,7 +8,7 @@ export async function getSubjectsService(page: number): Promise<SubjectsResponse
     },
   });
 
-  if (!res.ok) throw new Error("Failed to Get Orders Statistics");
+  if (!res.ok) throw new Error("Failed to Get Subjects");
 
   return res.json();
 }
