@@ -1,7 +1,6 @@
 import { LoginFields } from "@/lib/types/auth";
 import { useMutation } from "@tanstack/react-query";
 import { signIn } from "next-auth/react";
-import { toast } from "sonner";
 
 export default function useLogin() {
   const { mutate, isPending, error } = useMutation({
