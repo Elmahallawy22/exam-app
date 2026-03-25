@@ -72,6 +72,17 @@
       "item2": "Account Settings",
       "account": "Account",
       "logout": "logout"
+    },
+    "diplomas": {
+      "title": "Diplomas",
+      "scroll": "Scroll to view more ",
+      "end": "End of list"
+    },
+    "exams": {
+      "title": "Exams",
+      "questions": "Questions",
+      "duration": "Duration",
+      "minutes": "minutes"
     }
   }
 }

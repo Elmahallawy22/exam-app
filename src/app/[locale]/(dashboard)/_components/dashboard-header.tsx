@@ -46,14 +46,15 @@ export default function DashboardHeader() {
                   <>
                     <BreadcrumbSeparator className={cn(locale == "ar" && "rotate-180")} />
                     <BreadcrumbItem>
-                      <BreadcrumbPage>{formatSegment(segment)}</BreadcrumbPage>
+                      {/* decodeURIComponent() to convert %20 to space  */}
+                      <BreadcrumbPage>{decodeURIComponent(formatSegment(segment))}</BreadcrumbPage>
                     </BreadcrumbItem>
                   </>
                 ) : (
                   <>
                     <BreadcrumbSeparator className={cn(locale == "ar" && "rotate-180")} />
                     <BreadcrumbItem>
-                      <BreadcrumbLink href={href}> {formatSegment(segment)}</BreadcrumbLink>
+                      <BreadcrumbLink href={href}> {decodeURIComponent(formatSegment(segment))}</BreadcrumbLink>
                     </BreadcrumbItem>
                   </>
                 )}
