@@ -83,6 +83,15 @@
       "questions": "الأسئلة",
       "duration": "المدة",
       "minutes": "دقائق"
+    },
+    "questions": {
+      "title": "أسئلة",
+      "type": "تطوير الواجهات الأمامية",
+      "question": "سؤال",
+      "of": "من",
+      "previous": "السابق",
+      "next": "التالي",
+      "finish": "إنهاء"
     }
   }
 }

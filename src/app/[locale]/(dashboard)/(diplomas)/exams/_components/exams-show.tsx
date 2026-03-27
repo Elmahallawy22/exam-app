@@ -28,7 +28,7 @@ export default function ExamsShow() {
     <section className="bg-white p-6 space-y-4 h-[calc(100vh-200px)]">
       {payload?.exams.map((exam) => (
         <div key={exam._id}>
-          <ExamsCard title={exam.title} numberOfQuestions={10} duration={20} />
+          <ExamsCard id={exam._id} title={exam.title} numberOfQuestions={10} duration={20} />
         </div>
       ))}
     </section>

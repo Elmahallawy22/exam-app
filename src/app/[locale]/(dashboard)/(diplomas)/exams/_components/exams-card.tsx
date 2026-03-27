@@ -3,17 +3,18 @@ import { Timer } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 type ExamsCardProps = {
+  id: string;
   title: string;
   numberOfQuestions: number;
   duration: number;
 };
 
-export default function ExamsCard({ title, numberOfQuestions, duration }: ExamsCardProps) {
+export default function ExamsCard({ id, title, numberOfQuestions, duration }: ExamsCardProps) {
   // translation
   const t = useTranslations("dashboard.exams");
 
   return (
-    <Link href={`/exams/${title}/questions`} className="p-4 bg-blue-50 flex justify-between items-center">
+    <Link href={`/exams/${title}/questions?id=${id}`} className="p-4 bg-blue-50 flex justify-between items-center">
       <div className="">
         <h6 className="text-xl font-semibold text-blue-600">{title}</h6>
         <p className="text-sm text-gray-500">

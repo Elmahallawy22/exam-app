@@ -83,6 +83,15 @@
       "questions": "Questions",
       "duration": "Duration",
       "minutes": "minutes"
+    },
+    "questions": {
+      "title": "Questions",
+      "type": "Frontend Development",
+      "question": "Question",
+      "of": "of",
+      "previous": "Previous",
+      "next": "Next",
+      "finish" :"Finish"
     }
   }
 }
