@@ -1,4 +1,15 @@
 {
+  "general": {
+    "super-title": "Exam App",
+    "super-description": "Practice quizzes on JavaScript, CSS, HTML, and React. Each exam includes 10 questions with a 20‑minute duration to help you test your skills."
+  },
+  "not-found": {
+    "super-title": "Not Found",
+    "super-description": "Sorry, the page you are looking for could not be found. Please check the URL or return to the homepage.",
+    "title": "Page Not Found",
+    "description": "The page you are looking for does not exist.",
+    "go-home":" Go To Home"
+  },
   "auth-side": {
     "title": "Exam App",
     "sub-title": "Empower your learning journey with our smart exam platform.",
@@ -10,6 +21,8 @@
     "sub-title-feature-three": "Choose from specialized tracks like Frontend, Backend, and Mobile Development."
   },
   "login": {
+    "super-title": "Login",
+    "super-description": "Access your account securely to manage settings, view exams, and track your progress.",
     "title": "Login",
     "email": "Email",
     "email-placeholder": "Enter your email",
@@ -23,6 +36,8 @@
     "continue": "Continue"
   },
   "register": {
+    "super-title": "Register",
+    "super-description": "Create a new account to access exams, track your progress, and manage your learning journey.",
     "title": "Create Account",
     "first-name": "First name",
     "last-name": "Last name",
@@ -52,6 +67,8 @@
     "reset-password": "Reset Password"
   },
   "forgot-password-step": {
+    "super-title": "Forgot Password",
+    "super-description": "Reset your password securely by entering your email address. We'll send you instructions to regain access to your account.",
     "step-one-title": "Forgot Password",
     "step-one-subtitle": "Don’t worry, we will help you recover your account.",
     "step-two-title": "Verify OTP",
@@ -74,24 +91,34 @@
       "logout": "logout"
     },
     "diplomas": {
+      "super-title": "Diplomas",
+      "super-description": "Browse our professional diploma programs in AI, Web Development, Data Analysis, and more.",
       "title": "Diplomas",
       "scroll": "Scroll to view more ",
       "end": "End of list"
     },
     "exams": {
+      "super-title": "Exams",
+      "super-description": "Browse and attempt quizzes on JavaScript, CSS, HTML, and React. Each exam has more than 10 questions and about 20‑minute duration.",
       "title": "Exams",
       "questions": "Questions",
       "duration": "Duration",
       "minutes": "minutes"
     },
     "questions": {
+      "super-title": "Questions",
+      "super-description": "Browse and attempt quizzes on JavaScript, CSS, HTML, and React. Each exam has more than 10 questions and about 20‑minute duration.",
       "title": "Questions",
       "type": "Frontend Development",
       "question": "Question",
       "of": "of",
       "previous": "Previous",
       "next": "Next",
-      "finish" :"Finish"
+      "finish": "Finish"
+    },
+    "account": {
+      "super-title": "Account Settings",
+      "super-description": "Manage your profile, update your password, and configure notification preferences in your account settings."
     }
   }
 }
