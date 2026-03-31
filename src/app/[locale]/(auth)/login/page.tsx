@@ -1,6 +1,18 @@
 import { Link } from "@/i18n/navigation";
 import LoginForm from "./_components/login-form";
 import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
+
+// Title and description for SEO and social sharing
+export async function generateMetadata() {
+  // server-side translation
+  const t = await getTranslations("login");
+
+  return {
+    title: t("super-title"),
+    description: t("super-description"),
+  };
+}
 
 export default function Page() {
   const t = useTranslations("login");

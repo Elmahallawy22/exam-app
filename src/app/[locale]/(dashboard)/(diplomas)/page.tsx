@@ -2,6 +2,18 @@ import PageTitle from "@/components/shared/page-title";
 import { GraduationCap } from "lucide-react";
 import DiplomasShow from "./_components/diplomas-show";
 import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
+
+// Title and description for SEO and social sharing
+export async function generateMetadata() {
+  // server-side translation
+  const t = await getTranslations("dashboard.diplomas");
+
+  return {
+    title: t("super-title"),
+    description: t("super-description"),
+  };
+}
 
 export default function Home() {
   // translation
@@ -9,7 +21,7 @@ export default function Home() {
 
   return (
     <main>
-      <PageTitle icon={GraduationCap} title={t('title')}/>
+      <PageTitle icon={GraduationCap} title={t("title")} />
       {/* diplomas list */}
       <DiplomasShow />
     </main>
