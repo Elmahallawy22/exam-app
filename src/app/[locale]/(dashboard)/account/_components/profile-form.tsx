@@ -10,6 +10,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useTranslations } from "next-intl";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { parsePhoneNumber } from "react-phone-number-input";
+import DeleteAccountPopup from "./delete-account-popup";
 
 export default function ProfileForm() {
   // translations
@@ -119,11 +120,10 @@ export default function ProfileForm() {
           )}
         />
 
-        {/* delete account button */}
-        <Button className="mt-4 col-span-1 bg-red-50 text-red-600 hover:bg-red-100">{t("delete-account")}</Button>
-
+        {/* delete account component */}
+        <DeleteAccountPopup />
         {/* submit button */}
-        <Button disabled={!form.formState.isSubmitting} className="mt-4 col-span-1">
+        <Button disabled={!form.formState.isSubmitting} className="mt-4 col-span-1 rounded-none">
           {t("submit")}
         </Button>
       </form>
