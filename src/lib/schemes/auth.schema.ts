@@ -41,16 +41,18 @@ export const otpStepSchema = (t: Translatons) =>
   });
 
 export const resetPasswordStepSchema = (t: Translatons) =>
-  z.object({
-    password: z
-      .string(t("password-required"))
-      .min(8, t("password-length"))
-      .regex(/[A-Z]/, t("password-uppercase"))
-      .regex(/[a-z]/, t("password-lowercase"))
-      .regex(/[@$!%#*?&]/, t("password-special")),
-    rePassword: z.string(t("re-password-required")),
-  })
-  .refine((values) => values.password === values.rePassword, {
-    message: t("re-password-valid"),
-    path: ["rePassword"],
-  });
+  z
+    .object({
+      password: z
+        .string(t("password-required"))
+        .min(8, t("password-length"))
+        .regex(/[A-Z]/, t("password-uppercase"))
+        .regex(/[a-z]/, t("password-lowercase"))
+        .regex(/[@$!%#*?&]/, t("password-special")),
+      rePassword: z.string(t("re-password-required")),
+    })
+    .refine((values) => values.password === values.rePassword, {
+      message: t("re-password-valid"),
+      path: ["rePassword"],
+    });
+
