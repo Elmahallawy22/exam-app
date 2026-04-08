@@ -8,7 +8,7 @@
     "super-description": "Sorry, the page you are looking for could not be found. Please check the URL or return to the homepage.",
     "title": "Page Not Found",
     "description": "The page you are looking for does not exist.",
-    "go-home":" Go To Home"
+    "go-home": " Go To Home"
   },
   "auth-side": {
     "title": "Exam App",
@@ -116,9 +116,28 @@
       "next": "Next",
       "finish": "Finish"
     },
-    "account": {
-      "super-title": "Account Settings",
-      "super-description": "Manage your profile, update your password, and configure notification preferences in your account settings."
+    "account-sidebar": {
+      "profile": "Profile",
+      "change-password": "Change Password",
+      "logout": "Logout"
+    },
+    "profile": {
+      "super-title": "Profile",
+      "super-description": "Manage your account information, update your profile details",
+      "first-name": "First name",
+      "last-name": "Last name",
+      "user-name": "Username",
+      "email": "Email",
+      "phone": "Phone",
+      "delete-account":"Delete My Account",
+      "submit": "Save Changes",
+      "first-name-length": "FirstName at least 3 char",
+      "last-name-length": "LastName at least 3 char",
+      "user-name-length": "Username at least 3 character",
+      "email-required": "Please enter your email",
+      "phone-min": "Phone is required",
+      "phone-max": "Phone is more than invaled",
+      "phone-valid": "Please enter a valid phone number"
     }
   }
 }
