@@ -1,9 +1,10 @@
 "use client";
 import { Link, usePathname } from "@/i18n/navigation";
 import { cn } from "@/lib/utils/tailwind-merge";
-import { CircleUserRound, Lock, LogOut } from "lucide-react";
+import { CircleUserRound, Lock } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
+import LogoutButton from "./logout-button";
 
 export default function AccountSidebar() {
   // Translation
@@ -47,9 +48,7 @@ export default function AccountSidebar() {
         ))}
       </ul>
       {/* Logout Button */}
-      <button className={cn("py-2.5 px-4 bg-red-50 text-red-600 flex gap-2.5")}>
-        <LogOut className="rotate-180 rtl:rotate-0" /> {t("logout")}
-      </button>
+      <LogoutButton />
     </aside>
   );
 }
