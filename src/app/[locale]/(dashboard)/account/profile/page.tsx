@@ -1,5 +1,17 @@
 import React from "react";
 import ProfileForm from "../_components/profile-form";
+import { getTranslations } from "next-intl/server";
+
+// Title and description for SEO and social sharing
+export async function generateMetadata() {
+  // server-side translation
+  const t = await getTranslations("dashboard.profile");
+
+  return {
+    title: t("super-title"),
+    description: t("super-description"),
+  };
+}
 
 export default function Page() {
   return (
