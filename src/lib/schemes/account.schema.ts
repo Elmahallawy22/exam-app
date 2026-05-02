@@ -18,15 +18,15 @@ export const profileSchema = (t: Translatons) =>
 export const changePasswordSchema = (t: Translatons) =>
   z
     .object({
-      currentPassword: z.string().regex(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/, {
+      oldPassword: z.string().regex(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/, {
         message: t("password-required"),
       }),
-      newPassword: z.string().regex(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/, {
+      password: z.string().regex(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/, {
         message: t("password-required"),
       }),
       rePassword: z.string(t("re-password-required")),
     })
-    .refine((values) => values.newPassword === values.rePassword, {
+    .refine((values) => values.password === values.rePassword, {
       message: t("re-password-valid"),
       path: ["rePassword"],
     });

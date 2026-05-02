@@ -43,7 +43,7 @@ export default function UserInfo() {
         <DropdownMenuContent className="w-60" align="end">
           <DropdownMenuGroup className="p-2">
             <DropdownMenuItem
-              onClick={() => router.push("/account")}
+              onClick={() => router.push("/account/profile")}
               className="hover:cursor-pointer border-b border-zinc-100 text-zinc-700 hover:text-zinc-900"
             >
               <User className="h-5 w-5 text-gray-400" /> {t("sidebar.account")}
