@@ -8,23 +8,30 @@ import { useTranslations } from "next-intl";
 import { Input } from "@/components/ui/input";
 import { changePasswordSchema } from "@/lib/schemes/account.schema";
 import { ChangePasswordFields } from "@/lib/types/account";
+import useChangePassword from "@/hooks/use-change-password";
+import Feedback from "@/components/shared/feedback";
 
 export default function ChangePasswordForm() {
   //translation
   const t = useTranslations("account.change-password");
 
+  // mutation
+  const { changePassword, isPending, error } = useChangePassword();
+
   // form
   const form = useForm<ChangePasswordFields>({
     resolver: zodResolver(changePasswordSchema(t)),
     defaultValues: {
-      currentPassword: "",
-      newPassword: "",
+      oldPassword: "",
+      password: "",
       rePassword: "",
     },
   });
 
   // submit handler
-  const onSubmit: SubmitHandler<ChangePasswordFields> = () => {};
+  const onSubmit: SubmitHandler<ChangePasswordFields> = (values) => {
+    changePassword({ ...values });
+  };
 
   return (
     <Form {...form}>
@@ -32,7 +39,7 @@ export default function ChangePasswordForm() {
         {/* current password */}
         <FormField
           control={form.control}
-          name="currentPassword"
+          name="oldPassword"
           render={({ field }) => (
             <FormItem className="col-span-2">
               <FormLabel>{t("current-password")}</FormLabel>
@@ -48,7 +55,7 @@ export default function ChangePasswordForm() {
         {/* new password */}
         <FormField
           control={form.control}
-          name="newPassword"
+          name="password"
           render={({ field }) => (
             <FormItem className="col-span-2">
               <FormLabel>{t("new-password")}</FormLabel>
@@ -77,8 +84,10 @@ export default function ChangePasswordForm() {
             </FormItem>
           )}
         />
+        {/* feedback */}
+        <Feedback className="col-span-2 mt-6">{error?.message}</Feedback>
         {/* submit button */}
-        <Button className="rounded-none" disabled={!form.formState.isSubmitting}>
+        <Button className="rounded-none" disabled={isPending || (!form.formState.isValid && form.formState.isSubmitted)}>
           {t("update-password")}
         </Button>
       </form>

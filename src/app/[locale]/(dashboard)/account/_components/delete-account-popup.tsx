@@ -10,6 +10,7 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { Button } from "@/components/ui/button";
+import useDeleteMe from "@/hooks/use-delete-me";
 import { TriangleAlert, X } from "lucide-react";
 import { useTranslations } from "next-intl";
 
@@ -17,6 +18,12 @@ export default function DeleteAccountPopup() {
   // translations
   const t = useTranslations("account.profile");
 
+  // mutation
+  const { deleteMe } = useDeleteMe();
+
+  const handleDeletion = (): void => {
+    deleteMe();
+  };
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
@@ -46,7 +53,7 @@ export default function DeleteAccountPopup() {
           <AlertDialogCancel className="col-span-1 text-sm bg-gray-200 hover:bg-gray-300 text-gray-800 rounded-none">
             {t("cancel")}
           </AlertDialogCancel>
-          <AlertDialogAction className="col-span-1 text-sm bg-red-600 hover:bg-red-700 text-white rounded-none">
+          <AlertDialogAction onClick={handleDeletion} className="col-span-1 text-sm bg-red-600 hover:bg-red-700 text-white rounded-none">
             {t("delete-confirm")}
           </AlertDialogAction>
         </AlertDialogFooter>
