@@ -14,7 +14,7 @@ import DeleteAccountPopup from "./delete-account-popup";
 
 export default function ProfileForm() {
   // translations
-  const t = useTranslations("dashboard.profile");
+  const t = useTranslations("account.profile");
 
   const form = useForm<ProfileFields>({
     resolver: zodResolver(profileSchema(t)),

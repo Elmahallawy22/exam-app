@@ -6,7 +6,7 @@ import React from "react";
 
 export default function LogoutButton() {
   // Translation
-  const t = useTranslations("dashboard.account-sidebar");
+  const t = useTranslations("account.account-sidebar");
 
   return (
     <Button className={cn("py-2.5 px-4 bg-red-50 hover:bg-red-100 text-red-600 flex gap-2.5 rounded-none")}>

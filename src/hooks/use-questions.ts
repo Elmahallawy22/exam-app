@@ -1,8 +1,9 @@
 "use client";
 
-import { getQuestionsService } from "@/lib/services/questions.service";
+import { getQuestionService, getQuestionsService } from "@/lib/services/questions.service";
 import { useQuery } from "@tanstack/react-query";
 
+// Get Questions by examId
 export function useQuestions(examId: string) {
   const {
     data: payload,
@@ -15,3 +16,12 @@ export function useQuestions(examId: string) {
 
   return { payload, error, isLoading };
 }
+
+// Get Single Question
+export const useQuestion = (id: string) => {
+  return useQuery<SingleQuestionResponse, Error>({
+    queryKey: ["question", id],
+    queryFn: () => getQuestionService(id),
+    enabled: !!id,
+  });
+};

@@ -116,6 +116,20 @@
       "next": "التالي",
       "finish": "إنهاء"
     },
+    "answers": {
+      "results": "النتائج",
+      "correct": "صحيح",
+      "incorrect": "خطأ",
+      "restart": "إعادة المحاولة",
+      "explore": "استكشاف",
+      "no-answer": "لم يتم اختيار إجابة",
+      "loading": "جاري التحميل",
+      "error": "حدث خطأ"
+    }
+  },
+  "account": {
+    "super-title": "إعدادات الحساب",
+    "super-description": "قم بإدارة ملفك الشخصي، وتحديث كلمة المرور، وضبط تفضيلات الإشعارات من خلال إعدادات حسابك.",
     "account-sidebar": {
       "profile": "الملف الشخصي",
       "change-password": "تغيير كلمة المرور",

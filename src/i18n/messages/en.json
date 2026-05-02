@@ -116,6 +116,20 @@
       "next": "Next",
       "finish": "Finish"
     },
+    "answers": {
+      "results": "Results",
+      "correct": "Correct",
+      "incorrect": "Incorrect",
+      "restart": "Restart",
+      "explore": "Explore",
+      "no-answer": "No Answer Choosen",
+      "loading": "Loading",
+      "error": "Error"
+    }
+  },
+  "account": {
+    "super-title": "Account Settings",
+    "super-description": "Manage your profile, update your password, and configure notification preferences in your account settings.",
     "account-sidebar": {
       "profile": "Profile",
       "change-password": "Change Password",

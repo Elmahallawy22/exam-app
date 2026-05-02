@@ -15,7 +15,7 @@ export default function DiplomasShow() {
   const { payload, isLoading, error, isFetchingNextPage, hasNextPage, fetchNextPage } = useSubjects();
 
   // variables
-  const subjects = payload?.pages.flatMap((page) => page.subjects) ?? [];
+  const subjects = payload?.pages.flatMap((page) => page.subjects ?? []) ?? [];
 
   // if loading
   if (isLoading) {

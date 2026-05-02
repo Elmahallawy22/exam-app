@@ -1,8 +1,11 @@
+"use client";
+
 import { ChevronL } from "@/components/icons/ChevronL";
 import { ChevronR } from "@/components/icons/ChevronR";
 import { useQuestions } from "@/hooks/use-questions";
 import { cn } from "@/lib/utils/tailwind-merge";
 import { useTranslations } from "next-intl";
+import { useParams, useRouter } from "next/navigation";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 
 type QuestionsFooterProps = {
@@ -16,21 +19,41 @@ export default function QuestionsFooter({ id, questionNumber, setQuestionNumber,
   // Translation
   const t = useTranslations("dashboard.questions");
 
+  // Navigation
+  const router = useRouter();
+  const params = useParams();
+
   // Query
   const { payload } = useQuestions(id ?? "");
 
-  // variables
+  // Variables => This is a flexible choice
   const formatTime = (time: number) => {
     const minutes = Math.floor(time / 60);
     const seconds = time % 60;
+
     return `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
   };
 
-  const duration: number = payload?.questions?.[0]?.exam.duration ?? 0; // exam duration
+  const duration: number = payload?.questions?.[0]?.exam?.duration ?? 0;
 
   // Functions
   const handleFinish = () => {
-    console.log("User answers:", answers);
+    if (!payload?.questions) return;
+
+    // fill unanswered with A5
+    const completeAnswers = payload.questions.reduce(
+      (acc, question) => {
+        acc[question._id] = answers[question._id] ?? "A0";
+        return acc;
+      },
+      {} as Record<string, string>,
+    );
+
+    const title = sessionStorage.getItem("title-of-subject") || "";
+
+    sessionStorage.setItem("answers", JSON.stringify(completeAnswers)); // save data
+
+    router.push(`/${params.locale}/exams/${title}/questions/answers?id=${id}`);
   };
 
   return (
@@ -55,9 +78,7 @@ export default function QuestionsFooter({ id, questionNumber, setQuestionNumber,
         size={64}
         strokeWidth={6}
         strokeLinecap="square"
-        onComplete={() => {
-          console.log("Time end ⏳");
-        }}
+        onComplete={handleFinish}
       >
         {({ remainingTime }) => formatTime(remainingTime)}
       </CountdownCircleTimer>

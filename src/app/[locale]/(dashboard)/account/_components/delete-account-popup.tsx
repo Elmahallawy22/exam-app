@@ -15,7 +15,7 @@ import { useTranslations } from "next-intl";
 
 export default function DeleteAccountPopup() {
   // translations
-  const t = useTranslations("dashboard.profile");
+  const t = useTranslations("account.profile");
 
   return (
     <AlertDialog>

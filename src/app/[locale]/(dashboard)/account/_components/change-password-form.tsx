@@ -11,7 +11,7 @@ import { ChangePasswordFields } from "@/lib/types/account";
 
 export default function ChangePasswordForm() {
   //translation
-  const t = useTranslations("dashboard.change-password");
+  const t = useTranslations("account.change-password");
 
   // form
   const form = useForm<ChangePasswordFields>({

@@ -13,8 +13,15 @@ export default function ExamsCard({ id, title, numberOfQuestions, duration }: Ex
   // translation
   const t = useTranslations("dashboard.exams");
 
+  // function
+  const addTitleToStorage = () => sessionStorage.setItem("title-of-subject", title);
+
   return (
-    <Link href={`/exams/${title}/questions?id=${id}`} className="p-4 bg-blue-50 flex justify-between items-center">
+    <Link
+      href={`/exams/${title}/questions?id=${id}`}
+      onClick={addTitleToStorage}
+      className="p-4 bg-blue-50 flex justify-between items-center"
+    >
       <div className="">
         <h6 className="text-xl font-semibold text-blue-600">{title}</h6>
         <p className="text-sm text-gray-500">

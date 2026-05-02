@@ -5,7 +5,7 @@ import { getTranslations } from "next-intl/server";
 // Title and description for SEO and social sharing
 export async function generateMetadata() {
   // server-side translation
-  const t = await getTranslations("dashboard.change-password");
+  const t = await getTranslations("account.change-password");
 
   return {
     title: t("super-title"),

@@ -8,7 +8,7 @@ import LogoutButton from "./logout-button";
 
 export default function AccountSidebar() {
   // Translation
-  const t = useTranslations("dashboard.account-sidebar");
+  const t = useTranslations("account.account-sidebar");
 
   // Navigationw
   const pathname = usePathname();
