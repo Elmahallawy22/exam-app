@@ -125,10 +125,48 @@
       "no-answer": "No Answer Choosen",
       "loading": "Loading",
       "error": "Error"
+    }
+  },
+  "account": {
+    "super-title": "Account Settings",
+    "super-description": "Manage your profile, update your password, and configure notification preferences in your account settings.",
+    "account-sidebar": {
+      "profile": "Profile",
+      "change-password": "Change Password",
+      "logout": "Logout"
     },
-    "account": {
-      "super-title": "Account Settings",
-      "super-description": "Manage your profile, update your password, and configure notification preferences in your account settings."
+    "profile": {
+      "super-title": "Profile",
+      "super-description": "Manage your account information, update your profile details",
+      "first-name": "First name",
+      "last-name": "Last name",
+      "user-name": "Username",
+      "email": "Email",
+      "phone": "Phone",
+      "delete-account": "Delete My Account",
+      "delete-title": "Are you sure you want to delete your account?",
+      "delete-description": "This action is permanent and cannot be undone.",
+      "cancel": "Cancel",
+      "delete-confirm": "Yes, delete",
+      "submit": "Save Changes",
+      "first-name-length": "FirstName at least 3 char",
+      "last-name-length": "LastName at least 3 char",
+      "user-name-length": "Username at least 3 character",
+      "email-required": "Please enter your email",
+      "phone-min": "Phone is required",
+      "phone-max": "Phone is more than invaled",
+      "phone-valid": "Please enter a valid phone number"
+    },
+    "change-password": {
+      "super-title": "Change Password",
+      "super-description": "Update your account password regularly to enhance security. Choose a strong password that includes uppercase, lowercase, numbers, and special characters.",
+      "current-password": "Current Password",
+      "new-password": "New Password",
+      "confirm-new-password": "Confirm New Password",
+      "update-password": "Update Password",
+      "password-required": "Password must be at least 8 characters and include uppercase, lowercase, number, and special character",
+      "re-password-required": "Please confirm your password",
+      "re-password-valid": "Passwords do not match"
     }
   }
 }

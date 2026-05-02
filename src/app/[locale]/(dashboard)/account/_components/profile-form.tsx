@@ -1,43 +1,37 @@
 "use client";
 
-import Feedback from "@/components/shared/feedback";
 import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { PhoneInput } from "@/components/ui/phone-input";
-import useRegister from "@/hooks/use-register";
-import { registerSchema } from "@/lib/schemes/auth.schema";
-import { RegisterFields } from "@/lib/types/auth";
+import { profileSchema } from "@/lib/schemes/account.schema";
+import { ProfileFields } from "@/lib/types/account";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTranslations } from "next-intl";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { parsePhoneNumber } from "react-phone-number-input";
+import DeleteAccountPopup from "./delete-account-popup";
 
-export default function RegisterForm() {
+export default function ProfileForm() {
   // translations
-  const t = useTranslations("register");
-  // mutation
-  const { register, isPending, error } = useRegister();
+  const t = useTranslations("account.profile");
 
-  const form = useForm<RegisterFields>({
-    resolver: zodResolver(registerSchema(t)),
+  const form = useForm<ProfileFields>({
+    resolver: zodResolver(profileSchema(t)),
     defaultValues: {
       firstName: "",
       lastName: "",
       username: "",
       email: "",
       phone: "",
-      password: "",
-      rePassword: "",
     },
   });
 
-  const onSubmit: SubmitHandler<RegisterFields> = (values: RegisterFields) => {
+  const onSubmit: SubmitHandler<ProfileFields> = (values: ProfileFields) => {
+    // Parse the phone number to ensure it's in the correct format
     const parsedPhoneNumber = parsePhoneNumber(values.phone);
-
+    // If the phone number is valid, format it to the desired format (e.g., starting with '0')
     values.phone = `0${parsedPhoneNumber?.nationalNumber}`;
-
-    register(values);
   };
 
   return (
@@ -126,42 +120,10 @@ export default function RegisterForm() {
           )}
         />
 
-        {/* Password */}
-        <FormField
-          control={form.control}
-          name="password"
-          render={({ field }) => (
-            <FormItem className="col-span-2">
-              <FormLabel>{t("password")}</FormLabel>
-              {/* Field */}
-              <FormControl>
-                <Input type="password" placeholder="********" {...field} autoComplete="current-password" />
-              </FormControl>
-              {/* message */}
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        {/* confirmPassword */}
-        <FormField
-          control={form.control}
-          name="rePassword"
-          render={({ field }) => (
-            <FormItem className="col-span-2">
-              <FormLabel>{t("confirm-password")}</FormLabel>
-              {/* Field */}
-              <FormControl>
-                <Input type="password" placeholder="********" {...field} />
-              </FormControl>
-              {/* message */}
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        {/* feedback */}
-        <Feedback className="col-span-2 mt-6">{error?.message}</Feedback>
+        {/* delete account component */}
+        <DeleteAccountPopup />
         {/* submit button */}
-        <Button disabled={isPending || (!form.formState.isValid && form.formState.isSubmitted)} className="mt-4 col-span-2">
+        <Button disabled={!form.formState.isSubmitting} className="mt-4 col-span-1 rounded-none">
           {t("submit")}
         </Button>
       </form>

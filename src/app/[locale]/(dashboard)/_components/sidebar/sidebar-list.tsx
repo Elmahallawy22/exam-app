@@ -11,7 +11,7 @@ export default function SidebarList() {
   // Translation
   const t = useTranslations("dashboard");
 
-  // Navigation
+  // Navigationw
   const pathname = usePathname();
 
   // State
@@ -20,7 +20,7 @@ export default function SidebarList() {
   // Variables
   const sidebarList = [
     { id: 1, icon: <GraduationCap width={24} height={24} />, name: t("sidebar.item1"), href: "/" },
-    { id: 2, icon: <UserRound width={24} height={24} />, name: t("sidebar.item2"), href: "/account" },
+    { id: 2, icon: <UserRound width={24} height={24} />, name: t("sidebar.item2"), href: "/account/profile" },
   ];
 
   // Constants
