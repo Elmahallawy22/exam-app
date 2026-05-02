@@ -8,7 +8,7 @@
     "super-description": "Sorry, the page you are looking for could not be found. Please check the URL or return to the homepage.",
     "title": "Page Not Found",
     "description": "The page you are looking for does not exist.",
-    "go-home":" Go To Home"
+    "go-home": " Go To Home"
   },
   "auth-side": {
     "title": "Exam App",
@@ -115,6 +115,16 @@
       "previous": "Previous",
       "next": "Next",
       "finish": "Finish"
+    },
+    "answers": {
+      "results": "Results",
+      "correct": "Correct",
+      "incorrect": "Incorrect",
+      "restart": "Restart",
+      "explore": "Explore",
+      "no-answer": "No Answer Choosen",
+      "loading": "Loading",
+      "error": "Error"
     },
     "account": {
       "super-title": "Account Settings",

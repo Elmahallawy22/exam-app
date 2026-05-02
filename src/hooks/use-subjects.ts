@@ -16,9 +16,10 @@ export function useSubjects() {
     queryFn: ({ pageParam }) => getSubjectsService(pageParam),
     initialPageParam: 1,
     getNextPageParam: (lastPage) => {
+      if (!lastPage?.metadata) return undefined;
       if (lastPage.metadata.currentPage === lastPage.metadata.numberOfPages) return undefined;
 
-      return lastPage.metadata?.currentPage + 1;
+      return lastPage.metadata.currentPage + 1;
     },
   });
 

@@ -1,5 +1,3 @@
-"use client";
-
 import { useQuestions } from "@/hooks/use-questions";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
@@ -35,10 +33,7 @@ export default function QuestionsContent({ id, questionNumber, answers, setAnswe
       <RadioGroup value={answers[question._id] ?? ""} onValueChange={(val) => handleAnswer(question._id, val)} className="mt-4 space-y-2.5">
         {question.answers.map((ans) => (
           <div key={ans.key}>
-            <Label
-              htmlFor={`${question._id}-${ans.key}`}
-              className="text-gray-800 flex items-center gap-3 p-4 bg-gray-50"
-            >
+            <Label htmlFor={`${question._id}-${ans.key}`} className="text-gray-800 flex items-center gap-3 p-4 bg-gray-50">
               <RadioGroupItem value={ans.key} id={`${question._id}-${ans.key}`} />
               {ans.answer}
             </Label>

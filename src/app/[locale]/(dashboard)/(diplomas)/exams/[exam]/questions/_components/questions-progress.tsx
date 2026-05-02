@@ -4,7 +4,7 @@ import { useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
 
 type QuestionsProgressProps = {
-  questionNumber: number;
+  questionNumber?: number;
   id: string;
 };
 
@@ -23,7 +23,7 @@ export default function QuestionsProgress({ questionNumber, id }: QuestionsProgr
   const title = segments[3] ? decodeURIComponent(segments[3]) : "";
 
   const total = payload?.questions?.length ?? 1;
-  const progressValue = (questionNumber / total) * 100;
+  const progressValue = (questionNumber ?? payload?.questions?.length ?? 100 / total) * 100;
 
   return (
     <>
@@ -32,7 +32,8 @@ export default function QuestionsProgress({ questionNumber, id }: QuestionsProgr
           {t("type")} - {title}
         </p>
         <p>
-          {t("question")} <span className="text-blue-600 font-bold">{questionNumber}</span> {t("of")} {payload?.questions?.length}
+          {t("question")} <span className="text-blue-600 font-bold">{questionNumber ?? payload?.questions?.length}</span> {t("of")}{" "}
+          {payload?.questions?.length}
         </p>
       </div>
       {/* Progress of Questions */}
